@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Publisher: {{ author.name}}, {{ author.city }}</h1>
+  <h4>Books</h4>
+
+  {% for book in publisher.book_set.all %}
+  <hr />
+  <div style="display: flex; gap: 4px">
+      <a href="{{ book.get_absolute_url }}"><strong>{{ book.title }}</strong></a><p><strong>({{book.id}})</strong></p>
+  </div>
+  <p style="width: 50%">{{book.summary}}</p>
+  {% endfor %}
+
+{% endblock %}
